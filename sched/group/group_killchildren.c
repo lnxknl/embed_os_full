@@ -88,7 +88,7 @@ static int group_kill_children_handler(pid_t pid, FAR void *arg)
  *
  ****************************************************************************/
 
-static int group_cancel_children_handler(pid_t pid, FAR void *arg)
+static int group_cancel_children_handler(pid_t pid, FAR void *arg)// @NOTE 
 {
   FAR struct tcb_s *rtcb;
   int ret;
@@ -110,7 +110,7 @@ static int group_cancel_children_handler(pid_t pid, FAR void *arg)
 
           if ((rtcb->flags & TCB_FLAG_TTYPE_MASK) == TCB_FLAG_TTYPE_PTHREAD)
             {
-              ret = pthread_cancel(pid);
+              ret = pthread_cancel(pid);// @NOTE 
             }
           else
             {
@@ -150,7 +150,7 @@ static int group_cancel_children_handler(pid_t pid, FAR void *arg)
  *
  ****************************************************************************/
 
-int group_kill_children(FAR struct tcb_s *tcb)
+int group_kill_children(FAR struct tcb_s *tcb)// @NOTE 
 {
   int ret;
 
@@ -210,7 +210,7 @@ int group_kill_children(FAR struct tcb_s *tcb)
 
   /* Force cancel/delete again */
 
-  ret = group_foreachchild(tcb->group, group_cancel_children_handler,
+  ret = group_foreachchild(tcb->group, group_cancel_children_handler,// @NOTE 
                            (FAR void *)((uintptr_t)tcb->pid));
 
 #ifdef CONFIG_SMP

@@ -1762,13 +1762,13 @@ static void s32k1xx_dma_txcallback(DMACH_HANDLE handle, void *arg, bool done,
  ****************************************************************************/
 
 #ifdef SERIAL_HAVE_TXDMA
-static void s32k1xx_dma_txavailable(struct uart_dev_s *dev)
+static void s32k1xx_dma_txavailable(struct uart_dev_s *dev)// @NOTE 
 {
   struct s32k1xx_uart_s *priv = (struct s32k1xx_uart_s *)dev;
 
   /* Only send when the DMA is idle */
 
-  int rv = nxsem_trywait(&priv->txdmasem);
+  int rv = nxsem_trywait(&priv->txdmasem);// @NOTE 
 
   if (rv == OK)
     {

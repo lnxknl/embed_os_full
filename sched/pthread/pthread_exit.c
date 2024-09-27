@@ -60,7 +60,7 @@
  *
  ****************************************************************************/
 
-void nx_pthread_exit(FAR void *exit_value)
+void nx_pthread_exit(FAR void *exit_value)// @NOTE 
 {
   FAR struct tcb_s *tcb = this_task();
   sigset_t set;
@@ -103,5 +103,5 @@ void nx_pthread_exit(FAR void *exit_value)
 
   nxtask_exithook(tcb, status);
 
-  up_exit(EXIT_SUCCESS);
+  up_exit(EXIT_SUCCESS);// @NOTE 
 }

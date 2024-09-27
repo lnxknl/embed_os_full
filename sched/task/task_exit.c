@@ -68,7 +68,7 @@
  *
  ****************************************************************************/
 
-int nxtask_exit(void)
+int nxtask_exit(void)// @NOTE 
 {
   FAR struct tcb_s *dtcb;
   FAR struct tcb_s *rtcb;
@@ -98,7 +98,7 @@ int nxtask_exit(void)
 
   /* Update scheduler parameters */
 
-  nxsched_suspend_scheduler(dtcb);
+  nxsched_suspend_scheduler(dtcb);// @NOTE 
 
   /* Remove the TCB of the current task from the ready-to-run list.  A
    * context switch will definitely be necessary -- that must be done

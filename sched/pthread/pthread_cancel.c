@@ -40,7 +40,7 @@
  * Public Functions
  ****************************************************************************/
 
-int pthread_cancel(pthread_t thread)
+int pthread_cancel(pthread_t thread)// @NOTE 
 {
   FAR struct tcb_s *tcb;
 
@@ -92,7 +92,7 @@ int pthread_cancel(pthread_t thread)
 
   if (tcb == this_task())
     {
-      pthread_exit(PTHREAD_CANCELED);
+      pthread_exit(PTHREAD_CANCELED);// @NOTE 
     }
 
   /* Refer to tls_get_info() */

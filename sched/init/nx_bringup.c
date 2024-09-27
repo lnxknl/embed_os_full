@@ -396,7 +396,7 @@ static inline void nx_start_application(void)
  ****************************************************************************/
 
 #ifdef CONFIG_BOARD_LATE_INITIALIZE
-static int nx_start_task(int argc, FAR char **argv)
+static int nx_start_task(int argc, FAR char **argv)// @NOTE 
 {
   /* Do the board/application initialization and exit */
 
@@ -422,7 +422,7 @@ static int nx_start_task(int argc, FAR char **argv)
  *
  ****************************************************************************/
 
-static inline void nx_create_initthread(void)
+static inline void nx_create_initthread(void)// @NOTE 
 {
 #ifdef CONFIG_BOARD_LATE_INITIALIZE
   int pid;
@@ -431,7 +431,7 @@ static inline void nx_create_initthread(void)
    * execution.
    */
 
-  pid = nxthread_create("AppBringUp", TCB_FLAG_TTYPE_KERNEL,
+  pid = nxthread_create("AppBringUp", TCB_FLAG_TTYPE_KERNEL,// @NOTE 
                         CONFIG_BOARD_INITTHREAD_PRIORITY,
                         NULL, CONFIG_BOARD_INITTHREAD_STACKSIZE,
                         nx_start_task, NULL, environ);
@@ -482,7 +482,7 @@ static inline void nx_create_initthread(void)
  *
  ****************************************************************************/
 
-int nx_bringup(void)
+int nx_bringup(void)// @NOTE 
 {
   sched_trace_begin();
 

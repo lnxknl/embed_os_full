@@ -1720,7 +1720,7 @@ static void uart_launch_foreach(FAR struct tcb_s *tcb, FAR void *arg)
     }
 }
 
-static void uart_launch_worker(void *arg)
+static void uart_launch_worker(void *arg)// @NOTE 
 {
 #ifdef CONFIG_TTY_LAUNCH_ARGS
   FAR char *const argv[] =
@@ -1733,7 +1733,7 @@ static void uart_launch_worker(void *arg)
 #endif
   int found = 0;
 
-  nxsched_foreach(uart_launch_foreach, &found);
+  nxsched_foreach(uart_launch_foreach, &found);// @NOTE 
   if (!found)
     {
       posix_spawnattr_t attr;

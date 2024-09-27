@@ -604,7 +604,7 @@ void nx_start(void)
 #ifdef CONFIG_NET
   /* Initialize the networking system */
 
-  net_initialize();
+  net_initialize();// @NOTE 
 #endif
 
 #ifndef CONFIG_BINFMT_DISABLE
@@ -648,7 +648,7 @@ void nx_start(void)
 
   /* Initialize stdio for the IDLE task of each CPU */
 
-  for (i = 0; i < CONFIG_SMP_NCPUS; i++)
+  for (i = 0; i < CONFIG_SMP_NCPUS; i++)// @NOTE 
     {
       if (i > 0)
         {
@@ -688,7 +688,7 @@ void nx_start(void)
 
   /* Create initial tasks and bring-up the system */
 
-  DEBUGVERIFY(nx_bringup());
+  DEBUGVERIFY(nx_bringup());// @NOTE 
 
   /* Enter to idleloop */
 
@@ -709,7 +709,7 @@ void nx_start(void)
     {
       /* Perform any processor-specific idle state operations */
 
-      up_idle();
+      up_idle();// @NOTE 
     }
 #endif
 }

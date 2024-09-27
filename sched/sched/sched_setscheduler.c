@@ -75,7 +75,7 @@
  *
  ****************************************************************************/
 
-int nxsched_set_scheduler(pid_t pid, int policy,
+int nxsched_set_scheduler(pid_t pid, int policy,// @NOTE 
                           FAR const struct sched_param *param)
 {
   FAR struct tcb_s *tcb;
@@ -109,7 +109,7 @@ int nxsched_set_scheduler(pid_t pid, int policy,
 
   if (pid == 0)
     {
-      pid = nxsched_gettid();
+      pid = nxsched_gettid();// @NOTE 
     }
 
   /* Verify that the pid corresponds to a real task */
@@ -129,7 +129,7 @@ int nxsched_set_scheduler(pid_t pid, int policy,
   /* Further, disable timer interrupts while we set up scheduling policy. */
 
   flags = enter_critical_section();
-  tcb->flags &= ~TCB_FLAG_POLICY_MASK;
+  tcb->flags &= ~TCB_FLAG_POLICY_MASK;// @NOTE 
   switch (policy)
     {
       default:
@@ -155,7 +155,7 @@ int nxsched_set_scheduler(pid_t pid, int policy,
 
 #if CONFIG_RR_INTERVAL > 0
       case SCHED_OTHER:
-      case SCHED_RR:
+      case SCHED_RR:// @NOTE 
         {
 #ifdef CONFIG_SCHED_SPORADIC
           /* Cancel any on-going sporadic scheduling */
@@ -314,7 +314,7 @@ errout_with_irq:
 int sched_setscheduler(pid_t pid, int policy,
                        FAR const struct sched_param *param)
 {
-  int ret = nxsched_set_scheduler(pid, policy, param);
+  int ret = nxsched_set_scheduler(pid, policy, param);// @NOTE 
   if (ret < 0)
     {
       set_errno(-ret);

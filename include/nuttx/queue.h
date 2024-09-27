@@ -98,7 +98,7 @@
         } \
     } \
   while (0)
-
+// @NOTE 
 #define sq_addlast(p, q) \
   do \
     { \
@@ -190,7 +190,7 @@
         } \
     } \
   while (0)
-
+// @NOTE 
 #define dq_rem(p, q) \
   do \
     { \

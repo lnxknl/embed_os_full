@@ -51,7 +51,7 @@
  *
  ****************************************************************************/
 
-void pthread_exit(FAR void *exit_value)
+void pthread_exit(FAR void *exit_value)// @NOTE 
 {
   /* Mark the pthread as non-cancelable to avoid additional calls to
    * pthread_exit() due to any cancellation point logic that might get
@@ -68,6 +68,6 @@ void pthread_exit(FAR void *exit_value)
   tls_destruct();
 #endif
 
-  nx_pthread_exit(exit_value);
+  nx_pthread_exit(exit_value);// @NOTE 
   PANIC();
 }

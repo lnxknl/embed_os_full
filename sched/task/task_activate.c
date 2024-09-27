@@ -55,7 +55,7 @@
  *
  ****************************************************************************/
 
-void nxtask_activate(FAR struct tcb_s *tcb)
+void nxtask_activate(FAR struct tcb_s *tcb)// @NOTE 
 {
   irqstate_t flags = enter_critical_section();
   FAR struct tcb_s *rtcb = this_task();

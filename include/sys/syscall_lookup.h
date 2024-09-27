@@ -40,7 +40,7 @@ SYSCALL_LOOKUP(sched_lock,                 0)
 SYSCALL_LOOKUP(sched_lockcount,            0)
 SYSCALL_LOOKUP(sched_rr_get_interval,      2)
 SYSCALL_LOOKUP(sched_setparam,             2)
-SYSCALL_LOOKUP(sched_setscheduler,         3)
+SYSCALL_LOOKUP(sched_setscheduler,         3)// @NOTE 
 SYSCALL_LOOKUP(sched_unlock,               0)
 SYSCALL_LOOKUP(sched_yield,                0)
 SYSCALL_LOOKUP(nxsched_get_stackinfo,      2)

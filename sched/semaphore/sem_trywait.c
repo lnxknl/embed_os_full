@@ -64,7 +64,7 @@
  *
  ****************************************************************************/
 
-int nxsem_trywait(FAR sem_t *sem)
+int nxsem_trywait(FAR sem_t *sem)// @NOTE 
 {
   FAR struct tcb_s *rtcb = this_task();
   irqstate_t flags;
@@ -73,7 +73,7 @@ int nxsem_trywait(FAR sem_t *sem)
   /* This API should not be called from the idleloop */
 
   DEBUGASSERT(sem != NULL);
-  DEBUGASSERT(!OSINIT_IDLELOOP() || !sched_idletask() ||
+  DEBUGASSERT(!OSINIT_IDLELOOP() || !sched_idletask() ||// @NOTE 
               up_interrupt_context());
 
   /* The following operations must be performed with interrupts disabled

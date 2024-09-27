@@ -53,7 +53,7 @@
  *
  ****************************************************************************/
 
-void nxsched_remove_blocked(FAR struct tcb_s *btcb)
+void nxsched_remove_blocked(FAR struct tcb_s *btcb)// @NOTE 
 {
   tstate_t task_state = btcb->task_state;
 
@@ -66,7 +66,7 @@ void nxsched_remove_blocked(FAR struct tcb_s *btcb)
    * with this state
    */
 
-  dq_rem((FAR dq_entry_t *)btcb, TLIST_BLOCKED(btcb));
+  dq_rem((FAR dq_entry_t *)btcb, TLIST_BLOCKED(btcb));// @NOTE 
 
   /* Indicate that the wait is over. */
 

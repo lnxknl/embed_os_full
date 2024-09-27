@@ -47,7 +47,7 @@
  *
  ****************************************************************************/
 
-void nxsched_suspend(FAR struct tcb_s *tcb)
+void nxsched_suspend(FAR struct tcb_s *tcb)// @NOTE 
 {
   irqstate_t flags;
   bool switch_needed;

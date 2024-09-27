@@ -52,7 +52,7 @@
  *
  ****************************************************************************/
 
-void up_exit(int status)
+void up_exit(int status)// @NOTE 
 {
   struct tcb_s *tcb = this_task();
 
@@ -66,7 +66,7 @@ void up_exit(int status)
 
   /* Destroy the task at the head of the ready to run list. */
 
-  nxtask_exit();
+  nxtask_exit();// @NOTE 
 
   /* Now, perform the context switch to the new ready-to-run task at the
    * head of the list.

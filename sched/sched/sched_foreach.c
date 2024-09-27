@@ -55,7 +55,7 @@
  *
  ****************************************************************************/
 
-void nxsched_foreach(nxsched_foreach_t handler, FAR void *arg)
+void nxsched_foreach(nxsched_foreach_t handler, FAR void *arg)// @NOTE 
 {
   irqstate_t flags;
   int ndx;

@@ -73,7 +73,7 @@
  *
  ****************************************************************************/
 
-void net_initialize(void)
+void net_initialize(void)// @NOTE 
 {
   /* Initialize the device interface layer */
 

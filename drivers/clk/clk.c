@@ -108,7 +108,7 @@ static int clk_procfs_stat(const char *relpath, struct stat *buf);
 
 #if !defined(CONFIG_FS_PROCFS_EXCLUDE_CLK) && defined(CONFIG_FS_PROCFS)
 
-const struct procfs_operations g_clk_operations =
+const struct procfs_operations g_clk_operations =// @NOTE 
 {
   clk_procfs_open,       /* open */
   clk_procfs_close,      /* close */
@@ -328,11 +328,11 @@ static irqstate_t clk_list_lock(void)
   return enter_critical_section();
 }
 
-static void clk_list_unlock(irqstate_t flags)
+static void clk_list_unlock(irqstate_t flags)// @NOTE 
 {
   leave_critical_section(flags);
 
-  if (!up_interrupt_context() && !sched_idletask())
+  if (!up_interrupt_context() && !sched_idletask())// @NOTE 
     {
       nxmutex_unlock(&g_clk_list_lock);
     }

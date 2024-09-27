@@ -103,7 +103,7 @@ static void nxsig_setup_default_action(FAR struct task_group_s *group,
  * to be in this table (e.g., SIGCHLD).
  */
 
-static const struct nxsig_defaction_s g_defactions[] =
+static const struct nxsig_defaction_s g_defactions[] =// @NOTE 
 {
 #ifdef CONFIG_SIG_SIGKILL_ACTION
   { SIGHUP,    0,                nxsig_abnormal_termination },
@@ -132,7 +132,7 @@ static const struct nxsig_defaction_s g_defactions[] =
 #endif
 #ifdef CONFIG_SIG_SIGALRM_ACTION
   { SIGALRM,   0,                nxsig_abnormal_termination },
-  { SIGVTALRM, 0,                nxsig_abnormal_termination },
+  { SIGVTALRM, 0,                nxsig_abnormal_termination },// @NOTE 
 #endif
 #ifdef CONFIG_SIG_SIGSTOP_ACTION
   { SIGCONT,   0,                nxsig_null_action },
@@ -206,7 +206,7 @@ static void nxsig_null_action(int signo)
  ****************************************************************************/
 
 #ifdef HAVE_NXSIG_ABNORMAL_TERMINANTION
-static void nxsig_abnormal_termination(int signo)
+static void nxsig_abnormal_termination(int signo)// @NOTE 
 {
   FAR struct tcb_s *rtcb = this_task();
 
@@ -220,7 +220,7 @@ static void nxsig_abnormal_termination(int signo)
    * task group if this_task is a pthread.
    */
 
-  group_kill_children(rtcb);
+  group_kill_children(rtcb);// @NOTE 
 #endif
 
 #ifndef CONFIG_DISABLE_PTHREAD
